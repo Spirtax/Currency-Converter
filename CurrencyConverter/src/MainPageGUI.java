@@ -16,12 +16,14 @@ import javafx.stage.Stage;
 
 public class MainPageGUI extends Application
 {
- 
+	
+	// create variables for elements of the main page interface 
 	private ComboBox<String> fromCurrencyComboBox;
     private ComboBox<String> toCurrencyComboBox;
     private TextField amountTextField;
     private TextField convertedAmountTextField;
 
+    // runs the main page GUI
     public static void main(String[] args) {
         launch(args);
     }
@@ -34,25 +36,30 @@ public class MainPageGUI extends Application
         Label title = new Label("Currency Converter!");
         title.setStyle("-fx-font-size: 75px; -fx-font-weight: bold;");
 
-        // create and set the values of the currencies for the user to choose from
+        // set the values of the currencies for the user to choose from
         fromCurrencyComboBox = new ComboBox<>();
         fromCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
+        
         
         toCurrencyComboBox = new ComboBox<>();
         toCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
         
+        // set the text prompt for the drop down menus
         fromCurrencyComboBox.setPromptText("From Currency");
         toCurrencyComboBox.setPromptText("To Currency");
 
+        // create area in which the drop boxes will appear / formatting and visuals
         HBox currencySelection = new HBox(fromCurrencyComboBox, new Label("➔"), toCurrencyComboBox);
         currencySelection.setSpacing(10);
 
+        // create area in which the user will input amount wanting to be converted / formatting and visuals
         amountTextField = new TextField();
         convertedAmountTextField = new TextField();
         convertedAmountTextField.setEditable(false);
         
         HBox currencyAmount = new HBox(amountTextField, new Label(" ➔ "), convertedAmountTextField);
 
+        // create and set up button which users will press to initiate the currency conversion
         Button convertButton = new Button("Convert!");
         convertButton.setOnAction(e -> convertCurrency());
 
@@ -61,11 +68,13 @@ public class MainPageGUI extends Application
         root.setPadding(new Insets(20));
         root.getChildren().addAll(title, currencySelection, currencyAmount, convertButton);
 
+        // create scene to place all elements into
         Scene scene = new Scene(root, 1000, 750);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
     
+    // create a list of currencies in which the users will be able to choose from
     public static ArrayList<String> getCurr() throws FileNotFoundException
     {
     	ArrayList<String> currList = new ArrayList<String>();
@@ -84,6 +93,7 @@ public class MainPageGUI extends Application
     	return currList;
     }
     
+    // abstract method for converting currencies (WIP)
     public void convertCurrency() {};
 	
 	
