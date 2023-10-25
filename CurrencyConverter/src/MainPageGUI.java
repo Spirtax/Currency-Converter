@@ -40,13 +40,9 @@ public class MainPageGUI extends Application
         fromCurrencyComboBox = new ComboBox<>();
         fromCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
         
-        String fromCurr = fromCurrencyComboBox.getValue();
-        
         
         toCurrencyComboBox = new ComboBox<>();
         toCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
-        
-        String toCurr = toCurrencyComboBox.getValue();
         
         // set the text prompt for the drop down menus
         fromCurrencyComboBox.setPromptText("From Currency");
@@ -73,7 +69,7 @@ public class MainPageGUI extends Application
         root.getChildren().addAll(title, currencySelection, currencyAmount, convertButton);
 
         // create scene to place all elements into
-        Scene scene = new Scene(root, 1000, 750);
+        Scene scene = new Scene(root, 750, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
