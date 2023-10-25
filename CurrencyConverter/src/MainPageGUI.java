@@ -40,9 +40,13 @@ public class MainPageGUI extends Application
         fromCurrencyComboBox = new ComboBox<>();
         fromCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
         
+        String fromCurr = fromCurrencyComboBox.getValue();
+        
         
         toCurrencyComboBox = new ComboBox<>();
         toCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
+        
+        String toCurr = toCurrencyComboBox.getValue();
         
         // set the text prompt for the drop down menus
         fromCurrencyComboBox.setPromptText("From Currency");
