@@ -22,6 +22,8 @@ public class MainPageGUI extends Application
     private ComboBox<String> toCurrencyComboBox;
     private TextField amountTextField;
     private TextField convertedAmountTextField;
+    
+    public static final String stylesheet = "styles.css";
 
     // runs the main page GUI
     public static void main(String[] args) {
@@ -62,7 +64,8 @@ public class MainPageGUI extends Application
         // create and set up button which users will press to initiate the currency conversion
         Button convertButton = new Button("Convert!");
         convertButton.setOnAction(e -> convertCurrency());
-
+        convertButton.setId("convertButton");
+        
         // Create the layout
         VBox root = new VBox(20);
         root.setPadding(new Insets(20));
@@ -70,8 +73,18 @@ public class MainPageGUI extends Application
 
         // create scene to place all elements into
         Scene scene = new Scene(root, 750, 500);
+        initializeStylesheet(scene);        
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    
+    public static void initializeStylesheet(Scene scene) {
+        scene.getStylesheets().add(stylesheet);
+        getConvertButton(scene).getStyleClass().add("button");
+    }
+    
+    public static Button getConvertButton(Scene scene) {
+        return (Button) scene.lookup("#convertButton");
     }
     
     // create a list of currencies in which the users will be able to choose from

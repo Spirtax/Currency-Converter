@@ -1,0 +1,12 @@
+.root {
+    --light-color1: #5D707F;
+    --light-color2: #C0E6DE;
+    --medium-color: #C4A69D;
+    --dark-color1: #1F1F1F;
+    --dark-color2: #020122;
+}
+
+.button {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
