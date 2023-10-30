@@ -1,101 +1,115 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MainPageGUI extends Application
 {
 	
 	// create variables for elements of the main page interface 
-	private ComboBox<String> fromCurrencyComboBox;
-    private ComboBox<String> toCurrencyComboBox;
-    private TextField amountTextField;
-    private TextField convertedAmountTextField;
-
-    // runs the main page GUI
-    public static void main(String[] args) {
-        launch(args);
-    }
+    private double xOffset = 0;
+    private double yOffset = 0;
+    
+    //Scene and its components
+    private Scene scene;
+    private Parent root;
+    
+    //Styling sheet
+    public static final String stylesheet = "styles.css";
+    
+    //Currencies text file
+    public static final String currencies = "Currencies.txt";
+    
+    //Font link
+    public static final String font1 = "Roboto-Black.ttf";
 
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException {
         primaryStage.setTitle("Currency Converter");
+        primaryStage.initStyle(StageStyle.TRANSPARENT); 
+                
+		try {
+			//Loads the FXML file, make sure you have JavaFX downloaded in the plugin store
+			root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
+	        
+	        //Make window rounded
+	        Rectangle rect = new Rectangle(400, 600);
+	        rect.setArcWidth(20);
+	        rect.setArcHeight(20);
+	        root.setClip(rect);
+	        
+	        // Make the window draggable
+	        root.setOnMousePressed((MouseEvent event) -> {
+	            xOffset = event.getSceneX();
+	            yOffset = event.getSceneY();
+	        });
+	        root.setOnMouseDragged((MouseEvent event) -> {
+	            primaryStage.setX(event.getScreenX() - xOffset);
+	            primaryStage.setY(event.getScreenY() - yOffset);
+	        });
+	        
+	        // create scene to place all elements into
+	        scene = new Scene(root, 400, 600);
+	        
+	        //Initialize the stylesheet
+	        initializeStylesheet();        
+	        primaryStage.setScene(scene);
+	        primaryStage.show(); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-        // Create UI elements
-        Label title = new Label("Currency Converter!");
-        title.setStyle("-fx-font-size: 75px; -fx-font-weight: bold;");
-
-        // set the values of the currencies for the user to choose from
-        fromCurrencyComboBox = new ComboBox<>();
-        fromCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
-        
-        
-        toCurrencyComboBox = new ComboBox<>();
-        toCurrencyComboBox.setItems(FXCollections.observableArrayList(getCurr()));
-        
-        // set the text prompt for the drop down menus
-        fromCurrencyComboBox.setPromptText("From Currency");
-        toCurrencyComboBox.setPromptText("To Currency");
-
-        // create area in which the drop boxes will appear / formatting and visuals
-        HBox currencySelection = new HBox(fromCurrencyComboBox, new Label("➔"), toCurrencyComboBox);
-        currencySelection.setSpacing(10);
-
-        // create area in which the user will input amount wanting to be converted / formatting and visuals
-        amountTextField = new TextField();
-        convertedAmountTextField = new TextField();
-        convertedAmountTextField.setEditable(false);
-        
-        HBox currencyAmount = new HBox(amountTextField, new Label(" ➔ "), convertedAmountTextField);
-
-        // create and set up button which users will press to initiate the currency conversion
-        Button convertButton = new Button("Convert!");
-        convertButton.setOnAction(e -> convertCurrency());
-
-        // Create the layout
-        VBox root = new VBox(20);
-        root.setPadding(new Insets(20));
-        root.getChildren().addAll(title, currencySelection, currencyAmount, convertButton);
-
-        // create scene to place all elements into
-        Scene scene = new Scene(root, 750, 500);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    }
+    
+    private void initializeStylesheet() {
+        scene.getStylesheets().add(stylesheet);
+        scene.setFill(Color.TRANSPARENT);
     }
     
     // create a list of currencies in which the users will be able to choose from
-    public static ArrayList<String> getCurr() throws FileNotFoundException
+    static ArrayList<String> getCurrencies() throws FileNotFoundException
     {
     	ArrayList<String> currList = new ArrayList<String>();
-    	Scanner file = new Scanner(new File ("Currencies.txt"));
-    	
+    	Scanner file = new Scanner(new File (currencies));
     	while(file.hasNext())
     	{
-    		String[] curr = file.nextLine().split(" ");
-    		
-    		currList.add(curr[curr.length-1]);
+	    	try {
+	    		String[] curr = file.nextLine().split(" ");
+	    		currList.add(curr[curr.length-1]);
+	    		Collections.sort(currList);
+	    	
+	    	} catch (Exception e) {}
     	}
-    	
-    	Collections.sort(currList);
-    	
+
     	// returns a sorted array list of all currencies
     	return currList;
     }
     
-    // abstract method for converting currencies (WIP)
-    public void convertCurrency() {};
-	
-	
+    public Scene getScene() {
+    	return scene;
+    }
+    
+
 	
 }

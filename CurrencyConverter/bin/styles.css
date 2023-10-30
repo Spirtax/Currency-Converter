@@ -1,0 +1,58 @@
+* {		    
+	// https://colorhunt.co/palette/404258474e6850577a6b728e
+	// Link to view what the color pallete looks like, 4 is slightly darker
+	// https://dribbble.com/shots/2801075-Unit-Converter (Going for this look)
+	
+    -fx-alignment:center;
+    -fx-font-family: Roboto;
+    -fx-font-weight: 900;
+ }
+ 
+ @font-face {
+ 	font-family: Roboto;
+ 	src: url('Roboto-Black.ttf');
+ }
+ 
+ #pane {
+ 	    -fx-background-color: transparent;
+    -fx-background-radius: 20; /* Adjust the value as needed */
+ }
+ 
+ .root {
+ 	-fx-padding: 0;
+ }
+  
+ //The entire window, be careful to not affect children
+ .window {
+	-fx-padding: 0;
+	-fx-margin: 0;
+ }
+ 
+ .top {
+    -fx-background-color: linear-gradient(to left bottom, #2f5287, #3e79a8, #5aa0c5, #7fc9e0, #abf1fb);
+ 	-fx-min-height: 50%; 	
+ }
+ 
+ .bottom {
+ 	-fx-background-color: #F4F9F9;
+ 	-fx-min-height: 50%;
+ }
+ 
+.title {
+	-fx-text-fill: -fx-base4;
+	-fx-font-size: 75px; 
+	-fx-font-weight: bold;
+}
+    
+.textbox {
+	
+}
+
+.dropdown {
+	
+}
+
+.button {
+    -fx-background-color: -fx-base4;
+    -fx-text-fill: white;
+}
