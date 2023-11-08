@@ -53,6 +53,5 @@
 }
 
 .button {
-    -fx-background-color: -fx-base4;
     -fx-text-fill: white;
 }

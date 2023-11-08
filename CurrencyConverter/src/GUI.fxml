@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-background-radius: 20; -fx-background-insets: 0; -fx-border-color: transparent; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to left bottom, #487bc7, #489ad9, #5db9e6, #81d5f0, #abf1fb);;">
+      <AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to left bottom, #487bc7, #489ad9, #5db9e6, #81d5f0, #abf1fb);">
          <children>
             <TextField fx:id="inputCurrency" layoutX="77.0" layoutY="125.0" prefHeight="50.0" prefWidth="170.0" style="-fx-font-size: 14;">
                <font>

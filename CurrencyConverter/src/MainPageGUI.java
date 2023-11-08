@@ -38,7 +38,7 @@ public class MainPageGUI extends Application
     public static final String stylesheet = "styles.css";
     
     //Currencies text file
-    public static final String currencies = "Currencies.txt";
+    public static final String currencies = "CurrencyConverter/Currencies.txt";
     
     //Font link
     public static final String font1 = "Roboto-Black.ttf";
@@ -50,7 +50,7 @@ public class MainPageGUI extends Application
                 
 		try {
 			//Loads the FXML file, make sure you have JavaFX downloaded in the plugin store
-			root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/Login.FXML"));
 	        
 	        //Make window rounded
 	        Rectangle rect = new Rectangle(400, 600);
@@ -109,7 +109,4 @@ public class MainPageGUI extends Application
     public Scene getScene() {
     	return scene;
     }
-    
-
-	
 }

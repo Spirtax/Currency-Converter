@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to right, rgba(110, 159, 232, 1) 10%, rgba(80, 233, 255, 1) 90%);">
+         <children>
+            <Label layoutX="20.0" layoutY="120.0" prefHeight="110.0" prefWidth="360.0" style="-fx-alignment: center;" text="Create an account" textAlignment="JUSTIFY" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" layoutX="81.0" layoutY="258.0" prefHeight="46.0" prefWidth="239.0" promptText="Username" style="-fx-background-radius: 5; -fx-alignment: center;">
+               <font>
+                  <Font name="Roboto" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="passwordField" layoutX="81.0" layoutY="318.0" prefHeight="46.0" prefWidth="239.0" promptText="Password" style="-fx-background-radius: 5; -fx-alignment: center;">
+               <font>
+                  <Font name="Roboto" size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="89.0" layoutY="495.0" prefHeight="30.0" prefWidth="140.0" style="-fx-text-alignment: center; -fx-alignment: center;" text="Already have an account?" textAlignment="JUSTIFY" textFill="WHITE">
+               <font>
+                  <Font name="Roboto" size="12.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="loginLink" layoutX="229.0" layoutY="499.0" onAction="#switchToLogin" text="Login" textFill="WHITE" />
+            <Button fx:id="loginButton" layoutX="105.0" layoutY="396.0" mnemonicParsing="false" onAction="#switchToMain" prefHeight="60.0" prefWidth="192.0" style="-fx-background-radius: 20; -fx-background-color: #488ddb;" text="Create account">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="closeButton" fitHeight="25.0" fitWidth="25.0" layoutX="364.0" layoutY="12.0" onMouseClicked="#handleCloseButtonClick" opacity="0.7" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.25;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
