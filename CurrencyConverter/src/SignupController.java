@@ -79,6 +79,8 @@ public class SignupController implements Initializable {
 		// Change cursor on hover
 		closeButton.setOnMouseEntered(this::handleMouseEnter);
 		closeButton.setOnMouseExited(this::handleMouseExit);
+		
+		signupButton.setOnAction(this::handleCreateAccount);
     }
 
 
@@ -147,13 +149,18 @@ public class SignupController implements Initializable {
         timelineIn.play();
         closeButton.setEffect(shadowEffect);
     }
+    
+    //TODO
+    //Method for checking whenever user clicks create account button
+    //Same as login but adds the newly created user to list of users and checks if they already exist
+    private void handleCreateAccount(ActionEvent event) {
+        // Handle button click event
+        if (event.getSource() == signupButton) {
+            System.out.println("My button was pressed!");
+        }
+    }
 
     public void handleCloseButtonClick() {
         System.exit(0);
-    }
-    
-    public String getUsername() {
-    	return usernameField.getText();
-    }
-    
+    }    
 }

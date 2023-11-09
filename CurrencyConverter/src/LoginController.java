@@ -46,6 +46,9 @@ public class LoginController implements Initializable {
     private Button loginButton;
     @FXML
     private Hyperlink signupLink;
+    
+    public static String loginUserInput;
+    public static String loginPasswordInput;
 
     // Effects
     private DropShadow shadowEffect;
@@ -57,6 +60,15 @@ public class LoginController implements Initializable {
 	
 	@Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            loginPasswordInput = newValue;
+        });
+        
+        usernameField.textProperty().addListener((observable, oldValue, newValue) -> {
+        	loginUserInput = newValue;
+        });
+		
+		
         // Close button
 		Image cross = new Image(getClass().getResourceAsStream("cross.png"));
 		closeButton.setImage(cross);
@@ -67,6 +79,8 @@ public class LoginController implements Initializable {
 		// Change cursor on hover
 		closeButton.setOnMouseEntered(this::handleMouseEnter);
 		closeButton.setOnMouseExited(this::handleMouseExit);
+		
+		loginButton.setOnAction(this::handleSignIn);
     }
 
     public void switchToMain(ActionEvent event) throws IOException {
@@ -107,6 +121,16 @@ public class LoginController implements Initializable {
         root.setClip(rect);
     }
     
+    //TODO
+    //Method for handling when the user presses the sign in button
+    //Needs to check if the inputted user/password is correct
+    private void handleSignIn(ActionEvent event) {
+        // Handle button click event
+        if (event.getSource() == loginButton) {
+            System.out.println("My button was pressed!");
+        }
+    }
+    
     // Event handler for mouse enter
     private void handleMouseEnter(MouseEvent event) {
         closeButton.getScene().setCursor(Cursor.HAND);
@@ -137,10 +161,5 @@ public class LoginController implements Initializable {
 
     public void handleCloseButtonClick() {
         System.exit(0);
-    }
-    
-    public void printSignupPassword() {
-    	System.out.println(SignupController.password);
-    }
-    
+    } 
 }
