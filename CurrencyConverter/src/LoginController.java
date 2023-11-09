@@ -57,7 +57,6 @@ public class LoginController implements Initializable {
 	
 	@Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	System.out.println("Test");
         // Close button
 		Image cross = new Image(getClass().getResourceAsStream("cross.png"));
 		closeButton.setImage(cross);
@@ -138,6 +137,10 @@ public class LoginController implements Initializable {
 
     public void handleCloseButtonClick() {
         System.exit(0);
+    }
+    
+    public void printSignupPassword() {
+    	System.out.println(SignupController.password);
     }
     
 }

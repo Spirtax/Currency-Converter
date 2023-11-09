@@ -46,7 +46,11 @@ public class SignupController implements Initializable {
     private Button signupButton;
     @FXML
     private Hyperlink loginLink;
+    
+    public static String password;
+    public static String username;
 
+    
     // Effects
     private DropShadow shadowEffect;
     private Timeline timelineIn;
@@ -57,7 +61,14 @@ public class SignupController implements Initializable {
 	
 	@Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	System.out.println("Test");
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            password = newValue;
+        });
+        
+        usernameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            username = newValue;
+        });
+		
         // Close button
 		Image cross = new Image(getClass().getResourceAsStream("cross.png"));
 		closeButton.setImage(cross);
@@ -139,6 +150,10 @@ public class SignupController implements Initializable {
 
     public void handleCloseButtonClick() {
         System.exit(0);
+    }
+    
+    public String getUsername() {
+    	return usernameField.getText();
     }
     
 }

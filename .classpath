@@ -7,13 +7,13 @@
 	</classpathentry>
 	<classpathentry kind="src" path="CurrencyConverter/src"/>
 	<classpathentry kind="src" path="CurrencyConverter/styler"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.web.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.graphics.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.swing.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.media.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.controls.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.fxml.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx.base.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jacob/Downloads/javafx-swt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.base.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.fxml.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.graphics.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.media.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.swing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx.web.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jwell/OneDrive/Documents/JavaFX/javafx-swt.jar"/>
 	<classpathentry kind="output" path="CurrencyConverter/bin"/>
 </classpath>
