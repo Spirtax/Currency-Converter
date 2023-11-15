@@ -16,6 +16,7 @@
    <children>
       <AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to left bottom, #487bc7, #489ad9, #5db9e6, #81d5f0, #abf1fb);;">
          <children>
+            <Button fx:id="favButton" layoutX="10.0" layoutY="125.0" text="Favorite" onAction="#handleFavoriteAction" />
             <TextField fx:id="inputCurrency" layoutX="77.0" layoutY="125.0" prefHeight="50.0" prefWidth="170.0" style="-fx-font-size: 14;">
                <font>
                   <Font name="Roboto" size="18.0" />
