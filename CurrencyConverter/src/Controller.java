@@ -29,11 +29,16 @@ public class Controller implements Initializable {
     private ImageView convertButton;
     @FXML
     private Pane convertPane;
+    @FXML
+    private Button favButton;
 
     // Effects
     private DropShadow shadowEffect;
     private Timeline timelineIn;
     private Timeline timelineOut;
+
+    private Map<String, Boolean> fav = new HashMap<String, Boolean>();
+    private ArrayList<String> items;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -61,6 +66,14 @@ public class Controller implements Initializable {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+        try {
+			items = MainPageGUI.getCurrencies();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+        for (int i = 0; i < items.size(); ++i) {
+        	fav.put(items.get(i), false);
         }
     }
 
@@ -102,5 +115,22 @@ public class Controller implements Initializable {
 
     public ComboBox<String> getOutputBox() {
         return outputComboBox;
+    }
+
+    @FXML
+    private void handleFavoriteAction(ActionEvent event) {
+        String selectedItem = inputComboBox.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+        	if (!fav.get(selectedItem)) {
+        		fav.put(selectedItem, true);
+        		inputComboBox.getItems().remove(selectedItem); // Remove from the current position
+        		inputComboBox.getItems().add(0, selectedItem); // Add at the beginning for favorites
+        	}
+        	else {
+        		fav.put(selectedItem, false);
+        		inputComboBox.getItems().remove(selectedItem); // Remove from the current position
+        		inputComboBox.getItems().add(items.indexOf(selectedItem), selectedItem); // Add at the beginning for favorites
+        	}
+        }
     }
 }
