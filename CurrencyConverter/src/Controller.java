@@ -133,7 +133,7 @@ public class Controller implements Initializable {
         		inputComboBox.getItems().remove(selectedItem); // Remove from the current position
         		inputComboBox.getItems().add(items.indexOf(selectedItem), selectedItem); // Add at the beginning for favorites
 			outputComboBox.getItems().remove(selectedItem); // Remove from the current position
-        		outputComboBox.getItems().add(0, selectedItem);
+        		outputComboBox.getItems().add(items.indexOf(selectedItem), selectedItem);
         	}
         }
     }
